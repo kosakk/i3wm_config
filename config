@@ -466,5 +466,3 @@ exec --no-startup-id nitrogen --restore
 # Move whole workspace to different monitor
 bindsym $mod+Shift+bracketleft move workspace to output right 
 bindsym $mod+Shift+bracketright move workspace to output left
-
-# This is a plain comment
