@@ -1,1 +1,2 @@
-# my-i3-config
+# This is my i3wm config file.
+# It runs under Manjaro Linux.  
