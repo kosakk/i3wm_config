@@ -466,3 +466,7 @@ exec --no-startup-id nitrogen --restore
 # Move whole workspace to different monitor
 bindsym $mod+Shift+bracketleft move workspace to output right 
 bindsym $mod+Shift+bracketright move workspace to output left
+
+# On every system startup apply the square dell monitor preset settings 
+# for Dell monitor on top of the TFT (desktop setup 1)
+exec_always --no-startup-id ~/.screenlayout/SQUARE_DELL_on_top__Home__Setup.sh
