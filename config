@@ -303,7 +303,7 @@ exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
 # exec --no-startup-id blueman-applet
 exec_always --no-startup-id sbxkb
-exec --no-startup-id start_conky_maia
+# exec --no-startup-id -c start_conky_maia
 # exec --no-startup-id start_conky_green
 exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
@@ -458,7 +458,7 @@ exec_always setxkbmap -layout us,gr
 exec_always setxkbmap -option 'grp:shifts_toggle'
 
 # Home_setup_Dell_Monitor_on_the_right_of_LT430 monitors setup automation
-exec --no-startup-id /home/kosa/myscripts/monitors.sh
+# exec --no-startup-id /home/kosa/myscripts/monitors.sh
 
 # Set wallpaper on startup
 exec --no-startup-id nitrogen --restore
@@ -469,4 +469,6 @@ bindsym $mod+Shift+bracketright move workspace to output left
 
 # On every system startup apply the square dell monitor preset settings 
 # for Dell monitor on top of the TFT (desktop setup 1)
-exec_always --no-startup-id ~/.screenlayout/SQUARE_DELL_on_top__Home__Setup.sh
+# exec_always --no-startup-id ~/.screenlayout/SQUARE_DELL_on_top__Home__Setup.sh
+# exec_always --no-startup-id ~/.screenlayout/TRIPLE_monitor_setup.sh
+exec_always --no-startup-id ~/.screenlayout/TWO_EXTERNAL_monitors_only.sh
