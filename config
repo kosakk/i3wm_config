@@ -447,7 +447,6 @@ mode "$mode_gaps_outer" {
 }
 
 
-
 # kosa customizations 
 # disable touchpad on startup
 exec_always xinput set-prop "SynPS/2 Synaptics TouchPad" "Device Enabled" 0
@@ -457,9 +456,6 @@ exec_always setxkbmap -layout us,gr
 # change keybaord layout on both Shifts
 exec_always setxkbmap -option 'grp:shifts_toggle'
 
-# Home_setup_Dell_Monitor_on_the_right_of_LT430 monitors setup automation
-# exec --no-startup-id /home/kosa/myscripts/monitors.sh
-
 # Set wallpaper on startup
 exec --no-startup-id nitrogen --restore
 
@@ -467,8 +463,13 @@ exec --no-startup-id nitrogen --restore
 bindsym $mod+Shift+bracketleft move workspace to output right 
 bindsym $mod+Shift+bracketright move workspace to output left
 
-# On every system startup apply the square dell monitor preset settings 
-# for Dell monitor on top of the TFT (desktop setup 1)
-# exec_always --no-startup-id ~/.screenlayout/SQUARE_DELL_on_top__Home__Setup.sh
+# On system startup apply the pre-selected monitor setup
+exec_always --no-startup-id ~/.screenlayout/SQUARE_DELL_on_top__Home__Setup.sh
 # exec_always --no-startup-id ~/.screenlayout/TRIPLE_monitor_setup.sh
-exec_always --no-startup-id ~/.screenlayout/TWO_EXTERNAL_monitors_only.sh
+# exec_always --no-startup-id ~/.screenlayout/TWO_EXTERNAL_monitors_only.sh
+
+# Keyboard shortcuts to toggle screens layouts on demand
+bindsym Ctrl+Mod4+Mod1+1 exec --no-startup-id ~/.screenlayout/Built-in_only.sh
+bindsym Ctrl+Mod4+Mod1+2 exec --no-startup-id ~/.screenlayout/SQUARE_DELL_on_top__Home__Setup.sh
+bindsym Ctrl+Mod4+Mod1+3 exec --no-startup-id ~/.screenlayout/VERTICAL_Home_Setup_Dell_Monitor_on_the_right_hand_side_of_LT430.sh
+bindsym Ctrl+Mod4+Mod1+4 exec --no-startup-id ~/.screenlayout/TWO_EXTERNAL_monitors_only.sh
