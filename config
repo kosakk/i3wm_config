@@ -288,7 +288,7 @@ mode "resize" {
 }
 
 # Lock screen
-bindsym $mod+9 exec --no-startup-id blurlock
+# bindsym $mod+9 exec --no-startup-id blurlock
 bindsym $mod+Shift+x exec --no-startup-id blurlock
 # kosa lock session shortcut
 # bindsym $mod+Shift+x exec i3exit lock
@@ -349,7 +349,9 @@ set_from_resource $term_color15    color15
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
 	i3bar_command i3bar
-	status_command i3status
+	font pango:DejaVu Sans Mono, FontAwesome 9
+	# status_command i3status
+	status_command /home/kosa/.bumblebee-status/bumblebee-status/bumblebee-status -m cpu sensors memory arch-update battery disk nic layout amixer date time -p interval="0.5" memory.format="({percent:05.02f}%)" engine.workspacewrap=false disk.format="{used}" nic.states="^down" time.format="%H:%M" date.format="%d/%m/%Y" -t solarized-powerline
 	# position bottom
 	position top
 
@@ -449,6 +451,8 @@ mode "$mode_gaps_outer" {
 
 # kosa customizations 
 # disable touchpad on startup
+bindsym Ctrl+Shift+q exec xinput set-prop "SynPS/2 Synaptics TouchPad" "Device Enabled" 0; exec "notify-send 'TouchPad Disabled'"
+bindsym Ctrl+q exec xinput set-prop "SynPS/2 Synaptics TouchPad" "Device Enabled" 1; exec "notify-send 'TouchPad Enabled'"
 exec_always xinput set-prop "SynPS/2 Synaptics TouchPad" "Device Enabled" 0
 # change keyboard layout on Alt+Shift
 exec_always setxkbmap -layout us,gr
