@@ -477,3 +477,6 @@ bindsym Ctrl+Mod4+Mod1+1 exec --no-startup-id ~/.screenlayout/Built-in_only.sh
 bindsym Ctrl+Mod4+Mod1+2 exec --no-startup-id ~/.screenlayout/SQUARE_DELL_on_top__Home__Setup.sh
 bindsym Ctrl+Mod4+Mod1+3 exec --no-startup-id ~/.screenlayout/VERTICAL_Home_Setup_Dell_Monitor_on_the_right_hand_side_of_LT430.sh
 bindsym Ctrl+Mod4+Mod1+4 exec --no-startup-id ~/.screenlayout/TWO_EXTERNAL_monitors_only.sh
+
+# Galculator launch Shortcut
+bindsym $mod+g exec --no-startup-id galculator
