@@ -480,3 +480,6 @@ bindsym Ctrl+Mod4+Mod1+4 exec --no-startup-id ~/.screenlayout/TWO_EXTERNAL_monit
 
 # Galculator launch Shortcut
 bindsym $mod+g exec --no-startup-id galculator
+
+# Firefox launch Shortcut
+bindsym $mod+f exec --no-startup-id firefox
