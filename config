@@ -351,7 +351,7 @@ bar {
 	i3bar_command i3bar
 	font pango:DejaVu Sans Mono, FontAwesome 9
 	# status_command i3status
-	status_command /home/kosa/.bumblebee-status/bumblebee-status/bumblebee-status -m cpu sensors memory arch-update battery disk nic layout amixer date time -p interval="0.5" memory.format="({percent:05.02f}%)" engine.workspacewrap=false disk.format="{used}" nic.states="^down" time.format="%H:%M" date.format="%d/%m/%Y" -t solarized-powerline
+	status_command /home/kosa/.bumblebee-status/bumblebee-status/bumblebee-status -m sensors memory arch-update battery disk nic publicip layout amixer caffeine time -p interval="0.5" memory.format="({percent:05.02f}%)" engine.workspacewrap=false disk.format="{used}" nic.states="^down" time.format="%H:%M" date.format="%d/%m/%Y" -t solarized-powerline
 	# position bottom
 	position top
 
@@ -362,7 +362,7 @@ bar {
 	bindsym button4 nop
 	bindsym button5 nop
 #   font xft:URWGothic-Book 11
-	strip_workspace_numbers yes
+	strip_workspace_numbers no 
 
     colors {
         background #222D31
@@ -483,3 +483,9 @@ bindsym $mod+g exec --no-startup-id galculator
 
 # Firefox launch Shortcut
 bindsym $mod+Shift+f exec --no-startup-id firefox
+
+# Mousepad launch Shortcut 
+bindsym $mod+Shift+m exec --no-startup-id mousepad 
+
+# Viber launch Shortcut
+bindsym $mod+Shift+v exec --no-startup-id viber
