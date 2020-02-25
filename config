@@ -57,7 +57,8 @@ bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
 # bindsym $mod+F2 exec palemoon
-bindsym $mod+F2 exec google-chrome-stable
+bindsym $mod+F2 exec google-chrome-stable --profile-directory="Default"
+bindsym $mod+F7 exec google-chrome-stable --profile-directory=Profile\ 1
 bindsym $mod+F4 exec ranger
 bindsym $mod+F3 exec pcmanfm
 bindsym $mod+Shift+F3 exec gksu pcmanfm
@@ -165,6 +166,7 @@ set $ws5 5
 set $ws6 6
 set $ws7 7
 set $ws8 8
+set $ws9 9
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -175,6 +177,7 @@ bindsym $mod+5 workspace $ws5
 bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
 
 # Move focused container to workspace
 bindsym $mod+Ctrl+1 move container to workspace $ws1
@@ -185,6 +188,7 @@ bindsym $mod+Ctrl+5 move container to workspace $ws5
 bindsym $mod+Ctrl+6 move container to workspace $ws6
 bindsym $mod+Ctrl+7 move container to workspace $ws7
 bindsym $mod+Ctrl+8 move container to workspace $ws8
+bindsym $mod+Ctrl+9 move container to workspace $ws9
 
 # Move to workspace with focused container
 bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
@@ -195,6 +199,7 @@ bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
 bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
 bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 
 # Open applications on specific workspaces
 # assign [class="Thunderbird"] $ws1
@@ -305,15 +310,17 @@ exec --no-startup-id clipit
 exec_always --no-startup-id sbxkb
 # exec --no-startup-id -c start_conky_maia
 # exec --no-startup-id start_conky_green
-exec --no-startup-id xautolock -time 10 -locker blurlock
+# exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec --no-startup-id mousetrap -t 1 
-exec --no-startup-id orage
+exec --no-startup-id dde-calendar
 
 # Keybindings to enable/disable xautolock
 # bindsym $mod+period exec-always xautolock -enable | entr notify-send "xautolock enabled"
 # bindsym $mod+comma exec-always xautolcok -disable | entr notify-send "xautolock disabled"
+bindsym $mod+x exec --no-startup-id xautolock -disable | exec --no-startup-id "notify-send 'xautolock disabled'"
+# bindsym $mod+x exec-always --no-startup-id xautolock -disable | exec --no-startup-id "notify-send 'xautolock disabled'"
 
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
@@ -350,8 +357,9 @@ set_from_resource $term_color15    color15
 bar {
 	i3bar_command i3bar
 	font pango:DejaVu Sans Mono, FontAwesome 9
-	# status_command i3status
-	status_command /home/kosa/.bumblebee-status/bumblebee-status/bumblebee-status -m sensors memory arch-update battery disk nic publicip layout amixer caffeine time -p interval="0.5" memory.format="({percent:05.02f}%)" engine.workspacewrap=false disk.format="{used}" nic.states="^down" time.format="%H:%M" date.format="%d/%m/%Y" -t solarized-powerline
+    status_command i3status
+	# status_command /home/kosa/.bumblebee-status/bumblebee-status/bumblebee-status -m sensors memory arch-update battery disk nic publicip layout amixer time -p interval="0.5" memory.format="({percent:05.02f}%)" engine.workspacewrap=false disk.format="{used}" nic.states="^down" time.format="%H:%M" date.format="%d/%m/%Y" -t gruvbox-powerline
+	# status_command /home/kosa/.bumblebee-status/bumblebee-status/bumblebee-status -m sensors memory arch-update battery disk nic publicip -p interval="0.5" memory.format="({percent:05.02f}%)" engine.workspacewrap=false disk.format="{used}" nic.states="^down" time.format="%H:%M" date.format="%d/%m/%Y" -t gruvbox-powerline
 	# position bottom
 	position top
 
@@ -396,7 +404,10 @@ bindsym $mod+m bar mode toggle
 #############################
 
 # Set inner/outer gaps
-gaps inner 14
+# gaps inner 14
+# gaps inner 8 
+# gaps outer -2
+gaps inner 2
 gaps outer -2
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
@@ -489,3 +500,18 @@ bindsym $mod+Shift+m exec --no-startup-id mousepad
 
 # Viber launch Shortcut
 bindsym $mod+Shift+v exec --no-startup-id viber
+
+# Orage launch Shortcut 
+bindsym $mod+o exec --no-startup-id dde-calendar
+
+# Disable xautolock  
+# bindsym $mod+x exec --no-startup-id xautolock -disable; exec "notify-send 'xautolock is OFF'"
+
+############
+#	       #
+# LAUNCHES #
+#	       #
+############
+
+# bindsym Ctrl+Mod4+Mod1+s exec --no-startup-id google-chrome-stable exec --no-startup-id terminal
+
